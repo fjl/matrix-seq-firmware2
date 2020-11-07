@@ -157,7 +157,7 @@ class CSequenceEditor {
 	void init_config() {
 		//m_cfg.m_midi_in_mode = V_SQL_MIDI_IN_MODE_NONE;
 		m_cfg.m_midi_in_chan = V_SQL_MIDI_IN_CHAN_OMNI;
-		m_cfg.m_show_grid = 1;
+		m_cfg.m_show_grid = 0;
 		m_cfg.m_auto_gate = 1;
 	}
 
@@ -1336,9 +1336,6 @@ class CSequenceEditor {
 			case KEY_FUNC|KEY2_FUNC_INTERPOLATE:
 				toggle(P_SQL_FILL_MODE, "FILL:", "OFF|PAD|INT",3);
 				break;
-			case KEY_FUNC|KEY2_FUNC_GRID:
-				toggle(P_SQL_SHOW_GRID, "GRID:", "HID|SHO");
-				break;
 			case KEY_FUNC|KEY2_FUNC_REC_MODE:
 				toggle(P_SEQ_REC_MODE, "REC:", "NONE|CV|TRAN",3);
 				break;
@@ -1517,6 +1514,7 @@ public:
 			return g_sequence.get_layer(m_cur_layer).get(param);
 		}
 	}
+
 	///////////////////////////////////////////////////////////////////////////////
 	void set(PARAM_ID param, int value) {
 		switch(param) {

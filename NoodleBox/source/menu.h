@@ -62,10 +62,11 @@ public:
 	};
 
 
-	static const int NUM_MENU_B_OPTS = 19;
+	static const int NUM_MENU_B_OPTS = 20;
 	const OPTION m_menu_b[NUM_MENU_B_OPTS] = {
 			{"SCA", P_SEQ_SCALE_TYPE, PT_ENUMERATED, "IONI|DORI|PHRY|LYDI|MIXO|AEOL|LOCR"},
 			{"ROO", P_SEQ_SCALE_ROOT, PT_ENUMERATED, "C|C#|D|D#|E|F|F#|G|G#|A|A#|B"},
+			{"GRD", P_SQL_SHOW_GRID, PT_ENUMERATED, "OFF|ON"},
 			{0},
 			{"CLK", P_CLOCK_SRC, PT_ENUMERATED, "INT|MCLK|MTRN|PCLK"},
 			{"BPM", P_CLOCK_BPM, PT_BPM},
