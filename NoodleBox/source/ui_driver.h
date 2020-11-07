@@ -70,7 +70,7 @@
 
 
 #define KEY2_CV_FINE			KEY_B2
-#define KEY2_CV_SCROLL			KEY_B3
+// #define KEY2_CV_SCROLL			KEY_B3    (unused)
 #define KEY2_CV_MOVE_HORZ		KEY_B4
 #define KEY2_CV_MOVE_VERT		KEY_B5
 #define KEY2_CV_AUTO_SCROLL		KEY_B7

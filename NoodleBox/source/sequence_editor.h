@@ -669,16 +669,8 @@ class CSequenceEditor {
 		case ACTION_ENC_LEFT:
 		case ACTION_ENC_RIGHT:
 			switch(m_key_combo) {
-			case KEY_CV|KEY2_CV_SCROLL:
-				// action to shift all points up or down
-				if(what == ACTION_ENC_LEFT) {
-					scroll(layer,-1);
-				}
-				else {
-					scroll(layer,+1);
-				}
-				break;
 			case KEY_CV|KEY2_CV_MOVE_VERT:
+			    m_show_scrollbar = true;
 				// action to shift all points up or down
 				if(what == ACTION_ENC_LEFT) {
 					if(layer.shift_vertical(m_cur_page, -1)) {
@@ -731,9 +723,6 @@ class CSequenceEditor {
 		////////////////////////////////////////////////
 		case ACTION_COMBO_BEGIN:
 			switch(m_key_combo) {
-			case KEY_CV|KEY2_CV_SCROLL:
-				m_show_scrollbar = 1;
-				break;
 			case KEY_CV|KEY2_CV_MOVE_VERT:
 				m_edit_value = 0;
 				g_popup.text("VERT");
@@ -748,7 +737,7 @@ class CSequenceEditor {
 			}
 			break;
 		case ACTION_END:
-			m_show_scrollbar = 0;
+			m_show_scrollbar = false;
 			break;
 		default:
 			break;
@@ -1257,15 +1246,15 @@ class CSequenceEditor {
 			m_edit_mutes = 0;
 			break;
 		case ACTION_END:
+			m_show_scrollbar = false;
 			if(m_edit_mutes) {
 				g_popup.hide();
 			}
 			break;
 		case ACTION_ENC_LEFT:
-			scroll(layer, -1);
-			break;
 		case ACTION_ENC_RIGHT:
-			scroll(layer, +1);
+			m_show_scrollbar = true;
+			scroll(layer, (what == ACTION_ENC_LEFT) ? -1 : +1);
 			break;
 		case ACTION_KEY_DOWN_RAW:
 			if(m_edit_mutes) {
