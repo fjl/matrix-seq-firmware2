@@ -1838,7 +1838,7 @@ public:
 		}
 
 		// scrollbar
-		if(m_show_scrollbar) {
+		if(m_show_scrollbar && layer.get_mode() != V_SQL_SEQ_MODE_MOD) {
 			int thumb = layer.get_scroll_ofs();
 			if(layer.get_mode() == V_SQL_SEQ_MODE_PITCH && layer.is_scaled_view()) {
 				thumb = CScale::instance().index_to_note(thumb);
